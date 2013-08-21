@@ -34,10 +34,11 @@
 	};
 
 	chosen {
-		bootargs = "console=ttyPS0,115200 root=/dev/ram rw ip=:::::eth0:dhcp earlyprintk";			/*rootfs in memory */
-		/*bootargs = "console=ttyPS0,115200 root=/dev/mmcblk0p1 rw rootwait ip=:::::eth0:dhcp earlyprintk";*/	/*rootfs at MMC */
-		/*bootargs = "console=ttyPS0,115200 root=/dev/mmcblk1p2 rw rootwait ip=:::::eth0:dhcp earlyprintk";*/	/*rootfs at SD */
-		linux,stdout-path = "/amba@0/uart@E0000000";
+        /*bootargs = "console=ttyPS0,115200 root=/dev/ram rw ip=:::::eth0:dhcp earlyprintk";*/                  /*rootfs in memory, DHCP */
+        bootargs = "console=ttyPS0,115200 root=/dev/ram rw ip=192.168.42.50:::255.255.255.0::eth0 earlyprintk"; /*rootfs in memory, Static IP*/
+        /*bootargs = "console=ttyPS0,115200 root=/dev/mmcblk0p1 rw rootwait ip=:::::eth0:dhcp earlyprintk";*/   /*rootfs at MMC */
+        /*bootargs = "console=ttyPS0,115200 root=/dev/mmcblk1p2 rw rootwait ip=:::::eth0:dhcp earlyprintk";*/   /*rootfs at SD */
+        linux,stdout-path = "/amba@0/uart@E0000000";    /*UART0 as console*/
 	};
 
 	pmu {
